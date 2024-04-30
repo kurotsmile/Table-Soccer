@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Advertisements;
 using UnityEngine.Purchasing;
 using UnityEngine.UI;
 
@@ -84,7 +81,7 @@ public class Game : MonoBehaviour
     private void load_total_goals(string s_data)
     {
         this.manager_play.scores_total = PlayerPrefs.GetInt("scores_total", 0);
-        this.txt_menu_total_goals.text = PlayerPrefs.GetString("your_total_goals", "Your total goal score") + " : " + this.manager_play.scores_total.ToString();
+        this.txt_menu_total_goals.text = carrot.L("your_total_goals", "Your total goal score") + " : " + this.manager_play.scores_total.ToString();
     }
 
     public void back_home()
@@ -199,13 +196,13 @@ public class Game : MonoBehaviour
     {
         if (s_id == this.carrot.shop.get_id_by_index(1))
         {
-            this.carrot.Show_msg(PlayerPrefs.GetString("shop", "Shop"), PlayerPrefs.GetString("buy_player_success", "Buy successful football players!"));
+            this.carrot.Show_msg(carrot.L("shop", "Shop"),carrot.L("buy_player_success", "Buy successful football players!"));
             this.manager_play.unlock_player();
         }
 
         if (s_id == this.carrot.shop.get_id_by_index(2))
         {
-            this.carrot.Show_msg(PlayerPrefs.GetString("shop", "Shop"), PlayerPrefs.GetString("buy_all_player_success", "Buy all successful soccer players. you can use any player in the list"));
+            this.carrot.Show_msg(carrot.L ("shop", "Shop"), carrot.L("buy_all_player_success", "Buy all successful soccer players. you can use any player in the list"));
             this.in_app_unlock_all_player();
         }
     }
