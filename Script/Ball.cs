@@ -129,8 +129,11 @@ public class Ball : MonoBehaviour
 
         int index_r=Random.Range(0,tr_arrow_shoot.Count);
         GameObject.Find("Game").GetComponent<Game>().play_sound(0);
-        this.transform.position = tr_arrow_shoot[index_r].position;
-        this.transform.rotation = tr_arrow_shoot[index_r].rotation;
+        if (tr_arrow_shoot[index_r] != null)
+        {
+            this.transform.position = tr_arrow_shoot[index_r].position;
+            this.transform.rotation = tr_arrow_shoot[index_r].rotation;
+        }
         this.on_end_shoot();
     }
 

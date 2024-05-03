@@ -16,7 +16,6 @@ public class Game : MonoBehaviour
     public Sprite[] icon_team_sel;
     public Image img_icon_team1;
     public Image img_icon_team2;
-    public Image img_icon_sound_status;
     private int player_sel_team=2;
     public Text txt_menu_total_goals;
 
@@ -29,9 +28,13 @@ public class Game : MonoBehaviour
 
     [Header("Sound")]
     public AudioSource[] sound;
+    private string link_deep_app = "";
 
     private void Start()
     {
+        this.link_deep_app = Application.absoluteURL;
+        Application.deepLinkActivated += onDeepLinkActivated;
+
         this.carrot.Load_Carrot(this.check_exit_app);
         this.carrot.shop.onCarrotPaySuccess += this.on_success_carrot_pay;
         this.carrot.shop.onCarrotRestoreSuccess += this.on_success_carrot_restore;
@@ -62,6 +65,34 @@ public class Game : MonoBehaviour
             this.back_home();
             this.carrot.set_no_check_exit_app();
         }
+    }
+
+    private void onDeepLinkActivated(string url)
+    {
+        this.link_deep_app = url;
+        if (this.carrot != null) this.carrot.delay_function(1f, this.Check_link_deep_app);
+    }
+
+    private void Check_link_deep_app()
+    {
+        if (this.link_deep_app.Trim() != "")
+        {
+            if (this.carrot.is_online())
+            {
+                if (this.link_deep_app.Contains("tablesoccer:"))
+                {
+                    string id_project = this.link_deep_app.Replace("tablesoccer://show/", "");
+                    Debug.Log("Get player football id:" + id_project);
+                    this.link_deep_app = "";
+                }
+            }
+        }
+    }
+
+    [ContextMenu("Test Deep Link")]
+    public void Test_deep_link()
+    {
+        this.onDeepLinkActivated("tablesoccer://show/player1714458121648");
     }
 
     private void load_total_goals(string s_data)

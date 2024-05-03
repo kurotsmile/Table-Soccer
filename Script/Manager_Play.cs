@@ -26,6 +26,7 @@ public class Manager_Play : MonoBehaviour
 
     [Header("Info Player Change")]
     public GameObject panel_player_none;
+    public GameObject panel_player_loading;
     public GameObject panel_player_in;
     public Text info_change_name;
     public Image info_change_avatar;
@@ -72,6 +73,8 @@ public class Manager_Play : MonoBehaviour
     public Text Goalkeeper_win2_left_scores_p2;
     public Text Goalkeeper_win2_right_scores_p1;
     public Text Goalkeeper_win2_right_scores_p2;
+
+    private Carrot_Window_Input box_input = null;
 
     public void on_start()
     {
@@ -315,6 +318,7 @@ public class Manager_Play : MonoBehaviour
 
     private void get_list_player()
     {
+        this.panel_player_loading.SetActive(true);
         this.g.carrot.clear_contain(this.area_body_list_player);
         StructuredQuery q = new("football");
         q.Add_where("playing_position", Query_OP.EQUAL, this.fplayer_out.playing_position.ToString());
@@ -323,10 +327,10 @@ public class Manager_Play : MonoBehaviour
 
     private void Act_get_list_player(string s_data)
     {
+        this.panel_player_loading.SetActive(false);
         Fire_Collection fc = new(s_data);
         if (!fc.is_null)
         {
-
             this.g.carrot.clear_contain(this.area_body_list_player);
             for (int i = 0; i < fc.fire_document.Length; i++)
             {
@@ -463,11 +467,13 @@ public class Manager_Play : MonoBehaviour
 
     public void show_search_player()
     {
-        this.g.carrot.show_search(Act_search_done, this.g.carrot.L("search_player_tip", "Enter the name of the football player you want to search for for a change of person"));
+        this.box_input=this.g.carrot.show_search(Act_search_done, this.g.carrot.L("search_player_tip", "Enter the name of the football player you want to search for for a change of person"));
     }
 
     private void Act_search_done(string s_val)
     {
+        if (this.box_input != null) this.box_input.close();
+        this.panel_player_loading.SetActive(true);
         this.g.carrot.clear_contain(this.area_body_list_player);
         StructuredQuery q = new("football");
         q.Add_where("name", Query_OP.EQUAL, s_val);
