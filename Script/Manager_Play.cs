@@ -1,5 +1,5 @@
+using Carrot;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -222,7 +222,7 @@ public class Manager_Play : MonoBehaviour
 
     public void hide_edit_team_football_player()
     {
-        GameObject.Find("Game").GetComponent<Game>().play_sound(1);
+        this.g.play_sound(1);
         this.Panel_change_player.SetActive(false);
     }
 
@@ -313,38 +313,37 @@ public class Manager_Play : MonoBehaviour
         this.g.carrot.game.update_scores_player(this.scores_total);
     }
 
-    private void act_upload_scores(string s_data) { }
-
     private void get_list_player()
     {
         this.g.carrot.clear_contain(this.area_body_list_player);
-        //WWWForm frm_list_player = this.g.carrot.frm_act("list_player");
-        //frm_list_player.AddField("playing_position", this.fplayer_out.playing_position);
-        //this.g.carrot.send(frm_list_player, this.act_get_list_player);
+        StructuredQuery q = new("football");
+        q.Add_where("playing_position", Query_OP.EQUAL, this.fplayer_out.playing_position.ToString());
+        this.g.carrot.server.Get_doc(q.ToJson(), this.Act_get_list_player);
     }
 
-    private void act_get_list_player(string s_data)
+    private void Act_get_list_player(string s_data)
     {
-        IList list_player = (IList)Carrot.Json.Deserialize(s_data);
-        if (list_player.Count > 0)
+        Fire_Collection fc = new(s_data);
+        if (!fc.is_null)
         {
+
             this.g.carrot.clear_contain(this.area_body_list_player);
-            for (int i = 0; i < list_player.Count; i++)
+            for (int i = 0; i < fc.fire_document.Length; i++)
             {
-                IDictionary data_player = (IDictionary)list_player[i];
+                IDictionary data_player =fc.fire_document[i].Get_IDictionary();
                 GameObject Item_player = Instantiate(this.item_player_prefab);
                 Item_player.transform.SetParent(this.area_body_list_player);
                 Item_player.transform.localScale = new Vector3(1f, 1f, 1f);
-                Item_player.GetComponent<Football_Player>().txt_name.text = data_player["name_player"].ToString();
+                Item_player.GetComponent<Football_Player>().txt_name.text = data_player["name"].ToString();
                 Item_player.GetComponent<Football_Player>().ball_force = int.Parse(data_player["ball_force"].ToString());
                 Item_player.GetComponent<Football_Player>().ball_control = int.Parse(data_player["ball_control"].ToString());
                 Item_player.GetComponent<Football_Player>().ball_cutting = int.Parse(data_player["ball_cutting"].ToString());
 
                 string s_index_position = data_player["playing_position"].ToString();
                 string s_tip = "";
-                if(s_index_position=="0")
-                    s_tip= PlayerPrefs.GetString("playing_position_"+s_index_position, "Striker");
-                if(s_index_position == "1")
+                if (s_index_position == "0")
+                    s_tip = PlayerPrefs.GetString("playing_position_" + s_index_position, "Striker");
+                if (s_index_position == "1")
                     s_tip = PlayerPrefs.GetString("playing_position_" + s_index_position, "Midfielder");
                 if (s_index_position == "2")
                     s_tip = PlayerPrefs.GetString("playing_position_" + s_index_position, "Defender");
@@ -360,10 +359,18 @@ public class Manager_Play : MonoBehaviour
                 }
                 else
                 {
-                    if (data_player["is_buy"].ToString() == "0")
+                    if (data_player["buy"] !=null)
                     {
-                        Item_player.GetComponent<Football_Player>().is_free = true;
-                        Item_player.GetComponent<Football_Player>().button_buy.SetActive(false);
+                        if (data_player["buy"].ToString() == "0")
+                        {
+                            Item_player.GetComponent<Football_Player>().is_free = true;
+                            Item_player.GetComponent<Football_Player>().button_buy.SetActive(false);
+                        }
+                        else
+                        {
+                            Item_player.GetComponent<Football_Player>().is_free = false;
+                            Item_player.GetComponent<Football_Player>().button_buy.SetActive(true);
+                        }
                     }
                     else
                     {
@@ -374,7 +381,7 @@ public class Manager_Play : MonoBehaviour
 
                 if (this.index_edit_team == 2)
                 {
-                    if(!this.is_mode_one_play)Item_player.transform.rotation = Quaternion.Euler(0, 0, 180f);
+                    if (!this.is_mode_one_play) Item_player.transform.rotation = Quaternion.Euler(0, 0, 180f);
                 }
                 else
                     Item_player.transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -456,8 +463,15 @@ public class Manager_Play : MonoBehaviour
 
     public void show_search_player()
     {
-        //WWWForm frm_search = this.g.carrot.frm_act("list_player");
-        //this.g.carrot.show_search(frm_search, act_get_list_player, this.g.carrot.L("search_player_tip", "Enter the name of the football player you want to search for for a change of person"));
+        this.g.carrot.show_search(Act_search_done, this.g.carrot.L("search_player_tip", "Enter the name of the football player you want to search for for a change of person"));
+    }
+
+    private void Act_search_done(string s_val)
+    {
+        this.g.carrot.clear_contain(this.area_body_list_player);
+        StructuredQuery q = new("football");
+        q.Add_where("name", Query_OP.EQUAL, s_val);
+        this.g.carrot.server.Get_doc(q.ToJson(), this.Act_get_list_player);
     }
 
     public void unlock_player()

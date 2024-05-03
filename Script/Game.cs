@@ -1,3 +1,4 @@
+using Carrot;
 using UnityEngine;
 using UnityEngine.Purchasing;
 using UnityEngine.UI;
@@ -9,7 +10,6 @@ public class Game : MonoBehaviour
     [Header("Panel Game")]
     public GameObject panel_menu;
     public GameObject panel_play;
-    public GameObject panel_setting;
 
     [Header("Menu Home")]
     public Sprite icon_rank;
@@ -23,14 +23,11 @@ public class Game : MonoBehaviour
     [Header("Obj Game")]
     public Manager_Play manager_play;
     public GameObject Item_list_prefab;
-    public GameObject panel_setting_removeAds;
-    public GameObject panel_setting_buy_all_player;
-    public Sprite[] sp_icon_rank;
+
+    [Header("Asset icon")]
+    public Sprite icon_all_player;
 
     [Header("Sound")]
-    public Image img_icon_sound_setting;
-    public Sprite[] icon_status_sound;
-    public Sprite[] icon_status_sound_setting;
     public AudioSource[] sound;
 
     private void Start()
@@ -41,19 +38,12 @@ public class Game : MonoBehaviour
 
         this.panel_menu.SetActive(true);
         this.panel_play.SetActive(false);
-        this.panel_setting.SetActive(false);
         this.load_total_goals("");
         this.manager_play.on_start();
 
         this.player_sel_team = PlayerPrefs.GetInt("player_sel_team");
         this.check_team_select();
-
-        if (PlayerPrefs.GetInt("is_buy_player", 0) == 0)
-            this.panel_setting_buy_all_player.SetActive(true);
-        else
-            this.panel_setting_buy_all_player.SetActive(false);
     }
-
 
     private void check_exit_app()
     {
@@ -71,10 +61,6 @@ public class Game : MonoBehaviour
         {
             this.back_home();
             this.carrot.set_no_check_exit_app();
-        }else if (this.panel_setting.activeInHierarchy)
-        {
-            this.close_setting();
-            this.carrot.set_no_check_exit_app();
         }
     }
 
@@ -86,17 +72,20 @@ public class Game : MonoBehaviour
 
     public void back_home()
     {
+        carrot.ads.create_banner_ads();
         this.panel_menu.SetActive(true);
         this.play_sound(1);
     }
 
     public void game_play()
     {
+        carrot.ads.Destroy_Banner_Ad();
         this.manager_play.game_one_player(this.player_sel_team);
     }
 
     public void game_two_play()
     {
+        carrot.ads.Destroy_Banner_Ad();
         this.manager_play.game_two_player();
     }
 
@@ -169,12 +158,6 @@ public class Game : MonoBehaviour
         this.carrot.game.Show_List_Top_player();
     }
 
-
-    public void on_change_sound_status()
-    {
-        this.carrot.Change_status_sound(null);
-    }
-
     public void buy_product(int index_p)
     {
         this.play_sound(1);
@@ -183,7 +166,6 @@ public class Game : MonoBehaviour
 
     private void in_app_unlock_all_player()
     {
-        this.panel_setting_buy_all_player.SetActive(false);
         PlayerPrefs.SetInt("is_buy_player", 1);
     }
 
@@ -219,25 +201,23 @@ public class Game : MonoBehaviour
     public void show_setting()
     {
         this.play_sound(1);
-        this.panel_setting.SetActive(true);
+        Carrot_Box box=this.carrot.Create_Setting();
+
+        if (PlayerPrefs.GetInt("is_buy_player", 0) == 0)
+        {
+            Carrot_Box_Item item_unlook_all_player = box.create_item_of_index("item_unlook_all_player");
+            item_unlook_all_player.set_icon(this.icon_all_player);
+            item_unlook_all_player.set_title("Unlock all soccer players");
+            item_unlook_all_player.set_tip("Buy and use all soccer players");
+            item_unlook_all_player.set_type(Box_Item_Type.box_nomal);
+            item_unlook_all_player.check_type();
+            item_unlook_all_player.set_act(() => this.buy_product(2));
+        }
     }
 
-    public void close_setting()
-    {
-        this.play_sound(1);
-        this.panel_setting.SetActive(false);
-    }
-
-    public void game_in_app_restore()
-    {
-        this.play_sound(1);
-        this.carrot.shop.restore_product();
-    }
 
     public void game_del_all_data()
     {
-        this.panel_setting_buy_all_player.SetActive(false);
-        this.panel_setting_removeAds.SetActive(true);
         this.play_sound(1);
         this.carrot.Delete_all_data();
     }
