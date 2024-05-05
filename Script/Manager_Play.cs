@@ -255,7 +255,7 @@ public class Manager_Play : MonoBehaviour
             }
             else
             {
-                this.Goalkeeper_txt_name_p2.text = PlayerPrefs.GetString("robot", "Robot");
+                this.Goalkeeper_txt_name_p2.text = this.g.carrot.L("robot", "Robot");
                 this.Goalkeeper_txt_name_p1.text = this.g.carrot.user.get_data_user_login("name");
             }
         }

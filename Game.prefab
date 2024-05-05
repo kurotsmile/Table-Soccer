@@ -14746,7 +14746,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &688881470776036839
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27346,7 +27346,7 @@ MonoBehaviour:
   - list_app_carrot
   - login
   - rate
-  - ranking
+  - top_player
   - change_player
   - cancel
   - done
@@ -27359,22 +27359,6 @@ MonoBehaviour:
   - ball_cutting
   - search
   - buy_player
-  - setting_audio
-  - setting_audio_tip
-  - share
-  - share_tip
-  - rate
-  - rate_tip
-  - list_app_carrot
-  - exit_app_other
-  - remove_ads
-  - remove_ads_tip
-  - restore_inapp
-  - restore_inapp_tip
-  - del_data
-  - del_data_tip
-  - buy_all_player
-  - buy_all_player_tip
   emp:
   - {fileID: 1177719597861417772}
   - {fileID: 2535979419914002619}
@@ -27394,22 +27378,6 @@ MonoBehaviour:
   - {fileID: 8431346390846917301}
   - {fileID: 3308506955061306192}
   - {fileID: 9083718639403902507}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   List_img_change_icon_lang:
   - {fileID: 436863752247162416}
 --- !u!1 &9004802819719905637

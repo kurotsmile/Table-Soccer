@@ -238,8 +238,8 @@ public class Game : MonoBehaviour
         {
             Carrot_Box_Item item_unlook_all_player = box.create_item_of_index("item_unlook_all_player");
             item_unlook_all_player.set_icon(this.icon_all_player);
-            item_unlook_all_player.set_title("Unlock all soccer players");
-            item_unlook_all_player.set_tip("Buy and use all soccer players");
+            item_unlook_all_player.set_title(carrot.L("unlock_all_p","Unlock all soccer players"));
+            item_unlook_all_player.set_tip(carrot.L("unlock_all_p_tip","Buy and use all soccer players"));
             item_unlook_all_player.set_type(Box_Item_Type.box_nomal);
             item_unlook_all_player.check_type();
             item_unlook_all_player.set_act(() => this.buy_product(2));
