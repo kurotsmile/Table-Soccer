@@ -12,7 +12,6 @@ public class Game : MonoBehaviour
     public GameObject panel_play;
 
     [Header("Menu Home")]
-    public Sprite icon_rank;
     public Sprite[] icon_team_sel;
     public Image img_icon_team1;
     public Image img_icon_team2;
@@ -38,6 +37,9 @@ public class Game : MonoBehaviour
         this.carrot.Load_Carrot(this.check_exit_app);
         this.carrot.shop.onCarrotPaySuccess += this.on_success_carrot_pay;
         this.carrot.shop.onCarrotRestoreSuccess += this.on_success_carrot_restore;
+
+        this.carrot.game.load_bk_music(this.sound[5]);
+        this.carrot.change_sound_click(this.sound[1].clip);
 
         this.panel_menu.SetActive(true);
         this.panel_play.SetActive(false);
@@ -105,7 +107,7 @@ public class Game : MonoBehaviour
     {
         carrot.ads.create_banner_ads();
         this.panel_menu.SetActive(true);
-        this.play_sound(1);
+        this.carrot.play_sound_click();
     }
 
     public void game_play()
@@ -123,7 +125,7 @@ public class Game : MonoBehaviour
     public void game_reset_play()
     {
         this.manager_play.game_reset_player();
-        this.play_sound(1);
+        this.carrot.play_sound_click();
     }
 
     public void play_sound(int index)
@@ -134,7 +136,7 @@ public class Game : MonoBehaviour
 
     public void game_rate()
     {
-        this.play_sound(1);
+        this.carrot.play_sound_click();
         this.carrot.show_rate();
     }
 
@@ -146,26 +148,26 @@ public class Game : MonoBehaviour
 
     public void game_login()
     {
-        this.play_sound(1);
+        this.carrot.play_sound_click();
         this.carrot.show_login();
     }
 
     public void game_show_lang()
     {
-        this.play_sound(1);
+        this.carrot.play_sound_click();
         this.carrot.lang.Show_list_lang(this.load_total_goals);
     }
 
     public void game_share()
     {
-        this.play_sound(1);
+        this.carrot.play_sound_click();
         this.carrot.show_share();
     }
 
     public void btn_select_team(int index_team)
     {
         this.player_sel_team = index_team;
-        this.play_sound(1);
+        this.carrot.play_sound_click();
         PlayerPrefs.SetInt("player_sel_team", index_team);
         this.check_team_select();
     }
@@ -231,7 +233,6 @@ public class Game : MonoBehaviour
 
     public void show_setting()
     {
-        this.play_sound(1);
         Carrot_Box box=this.carrot.Create_Setting();
 
         if (PlayerPrefs.GetInt("is_buy_player", 0) == 0)

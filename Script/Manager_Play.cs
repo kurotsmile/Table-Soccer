@@ -246,19 +246,9 @@ public class Manager_Play : MonoBehaviour
     public void show_goalkeeper()
     {
         this.g.play_sound(6);
-        if (this.g.carrot.user.get_id_user_login() != "")
-        {
-            if (this.player_sel_team == 1)
-            {
-                this.Goalkeeper_txt_name_p2.text = this.g.carrot.user.get_data_user_login("name");
-                this.Goalkeeper_txt_name_p1.text =this.g.carrot.L("robot", "Robot");
-            }
-            else
-            {
-                this.Goalkeeper_txt_name_p2.text = this.g.carrot.L("robot", "Robot");
-                this.Goalkeeper_txt_name_p1.text = this.g.carrot.user.get_data_user_login("name");
-            }
-        }
+        string user_name_player = "";
+
+        if (this.g.carrot.user.get_id_user_login() != "") user_name_player= this.g.carrot.user.get_data_user_login("name");
 
         this.football_txt_scores_p1.text = this.scores_p1.ToString();
         this.football_txt_scores_p2.text = this.scores_p2.ToString();
@@ -283,6 +273,33 @@ public class Manager_Play : MonoBehaviour
             this.Goalkeeper_txt_scores_p2.text = this.scores_p2.ToString();
             this.upload_scores();
             this.Panel_goalkeeper_1player.SetActive(true);
+
+            if (user_name_player != "")
+            {
+                if (this.player_sel_team == 1)
+                {
+                    this.Goalkeeper_txt_name_p2.text = this.g.carrot.user.get_data_user_login("name");
+                    this.Goalkeeper_txt_name_p1.text = this.g.carrot.L("robot", "Robot");
+                }
+                else
+                {
+                    this.Goalkeeper_txt_name_p2.text = this.g.carrot.L("robot", "Robot");
+                    this.Goalkeeper_txt_name_p1.text = this.g.carrot.user.get_data_user_login("name");
+                }
+            }
+            else
+            {
+                if (this.player_sel_team == 1)
+                {
+                    this.Goalkeeper_txt_name_p2.text = this.g.carrot.L("player", "Player");
+                    this.Goalkeeper_txt_name_p1.text = this.g.carrot.L("robot", "Robot");
+                }
+                else
+                {
+                    this.Goalkeeper_txt_name_p2.text = this.g.carrot.L("robot", "Robot");
+                    this.Goalkeeper_txt_name_p1.text = this.g.carrot.L("player", "Player");
+                }
+            }
         }
         else
         {
@@ -290,6 +307,8 @@ public class Manager_Play : MonoBehaviour
             this.Goalkeeper_win2_left_scores_p2.text = this.scores_p2.ToString();
             this.Goalkeeper_win2_right_scores_p1.text = this.scores_p1.ToString();
             this.Goalkeeper_win2_right_scores_p2.text = this.scores_p2.ToString();
+            this.Goalkeeper_txt_name_p2.text = this.g.carrot.L("player", "Player")+" 2";
+            this.Goalkeeper_txt_name_p1.text = this.g.carrot.L("player", "Player")+" 1";
             this.ani.Play("Game_Win_2");
             this.Panel_goalkeeper_2player.SetActive(true);
         }
