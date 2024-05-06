@@ -409,7 +409,17 @@ public class Manager_Play : MonoBehaviour
                 else
                     Item_player.transform.rotation = Quaternion.Euler(0, 0, 0);
 
-                this.g.carrot.get_img(data_player["icon"].ToString(), Item_player.GetComponent<Football_Player>().img_avatar);
+                string id_icon_p = "icon_p_"+data_player["id"].ToString();
+                Sprite icon_player = this.g.carrot.get_tool().get_sprite_to_playerPrefs(id_icon_p);
+                if (icon_player != null)
+                {
+                    Item_player.GetComponent<Football_Player>().img_avatar.sprite=icon_player;
+                    Item_player.GetComponent<Football_Player>().img_avatar.color = Color.white;
+                }
+                else
+                {
+                    this.g.carrot.get_img_and_save_playerPrefs(data_player["icon"].ToString(), Item_player.GetComponent<Football_Player>().img_avatar, id_icon_p);
+                }
             }
         }
         else
