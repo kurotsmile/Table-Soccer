@@ -346,13 +346,13 @@ public class Manager_Play : MonoBehaviour
                 string s_index_position = data_player["playing_position"].ToString();
                 string s_tip = "";
                 if (s_index_position == "0")
-                    s_tip = PlayerPrefs.GetString("playing_position_" + s_index_position, "Striker");
+                    s_tip = g.carrot.L("playing_position_" + s_index_position, "Striker");
                 if (s_index_position == "1")
-                    s_tip = PlayerPrefs.GetString("playing_position_" + s_index_position, "Midfielder");
+                    s_tip = g.carrot.L("playing_position_" + s_index_position, "Midfielder");
                 if (s_index_position == "2")
-                    s_tip = PlayerPrefs.GetString("playing_position_" + s_index_position, "Defender");
+                    s_tip = g.carrot.L("playing_position_" + s_index_position, "Defender");
                 if (s_index_position == "3")
-                    s_tip = PlayerPrefs.GetString("playing_position_" + s_index_position, "Goalie");
+                    s_tip = g.carrot.L("playing_position_" + s_index_position, "Goalie");
 
                 Item_player.GetComponent<Football_Player>().txt_tip.text = s_tip;
 
