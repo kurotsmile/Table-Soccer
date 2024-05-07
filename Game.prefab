@@ -1691,7 +1691,7 @@ RectTransform:
   m_Father: {fileID: 2851207171081758089}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.9998072}
+  m_AnchorMax: {x: 1, y: 0.9999922}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0.000011444092}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2836,6 +2836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img_avatar: {fileID: 4969567783380024448}
+  s_id: 
   s_name: Virgil van dijk
   block_shoot_arow: []
   ball_force: 2
@@ -4277,6 +4278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img_avatar: {fileID: 7725871926706904636}
+  s_id: 
   s_name: Gerard Pique
   block_shoot_arow: []
   ball_force: 3
@@ -6142,7 +6144,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.0005493164}
+  m_AnchoredPosition: {x: 0, y: 0.00030517578}
   m_SizeDelta: {x: -0.000011444092, y: 49}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &5128774590291814465
@@ -6527,6 +6529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img_avatar: {fileID: 546098100585689636}
+  s_id: 
   s_name: Leonardo Bonucci
   block_shoot_arow: []
   ball_force: 2
@@ -7148,6 +7151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img_avatar: {fileID: 4538122853368868997}
+  s_id: 
   s_name: Kylian Mbappe
   block_shoot_arow: []
   ball_force: 3
@@ -7611,6 +7615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img_avatar: {fileID: 2771107779256243907}
+  s_id: 
   s_name: Ronaldinho
   block_shoot_arow:
   - {fileID: 2739251321914317580}
@@ -8482,6 +8487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img_avatar: {fileID: 6241729327620459498}
+  s_id: 
   s_name: Sergio Ramos
   block_shoot_arow:
   - {fileID: 2739251321914317580}
@@ -11377,6 +11383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img_avatar: {fileID: 4982466624361279123}
+  s_id: 
   s_name: Toni Kroos
   block_shoot_arow:
   - {fileID: 2739251321914317580}
@@ -11695,6 +11702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img_avatar: {fileID: 7412112234157062037}
+  s_id: 
   s_name: Luka Modric caricature
   block_shoot_arow: []
   ball_force: 8
@@ -13303,6 +13311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img_avatar: {fileID: 77926695385523902}
+  s_id: 
   s_name: N'Golo Kante
   block_shoot_arow: []
   ball_force: 4
@@ -13693,6 +13702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img_avatar: {fileID: 322380913748061826}
+  s_id: 
   s_name: Neymar
   block_shoot_arow:
   - {fileID: 1265563586359876680}
@@ -14777,7 +14787,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1122309241802776985}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9998072
+  m_Size: 0.99999267
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -15142,6 +15152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img_avatar: {fileID: 7550809722000141163}
+  s_id: 
   s_name: Kevin De Bruyne
   block_shoot_arow:
   - {fileID: 2739251321914317580}
@@ -15353,6 +15364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img_avatar: {fileID: 7554363884807662759}
+  s_id: 
   s_name: Marcelo Vieira
   block_shoot_arow:
   - {fileID: 1265563586359876680}
@@ -15842,6 +15854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img_avatar: {fileID: 3526712940753762100}
+  s_id: 
   s_name: Alisson
   block_shoot_arow:
   - {fileID: 80237187918475560}
@@ -16599,6 +16612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img_avatar: {fileID: 3940046493146896868}
+  s_id: 
   s_name: Paul Pogba
   block_shoot_arow: []
   ball_force: 6
@@ -16835,6 +16849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img_avatar: {fileID: 618711996189422153}
+  s_id: 
   s_name: Frenkie De Jong
   block_shoot_arow:
   - {fileID: 1265563586359876680}
@@ -17378,6 +17393,7 @@ GameObject:
   - component: {fileID: 3295770382704223081}
   - component: {fileID: 6147883823655447134}
   - component: {fileID: 1135424098570297673}
+  - component: {fileID: 8981784545351138924}
   m_Layer: 5
   m_Name: change_player_in
   m_TagString: Untagged
@@ -17397,6 +17413,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6143506810893662174}
   - {fileID: 9190550883884722884}
   - {fileID: 5748830304661786686}
   - {fileID: 7245462876995213289}
@@ -17447,6 +17464,62 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8981784545351138924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5877700133673003111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1135424098570297673}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7767023737743440880}
+        m_TargetAssemblyTypeName: Manager_Play, Assembly-CSharp
+        m_MethodName: Btn_show_tip_player_in
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5894966758843975103
 GameObject:
   m_ObjectHideFlags: 0
@@ -17617,6 +17690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img_avatar: {fileID: 1529055632986137814}
+  s_id: 
   s_name: Lionel Messi
   block_shoot_arow: []
   ball_force: 9
@@ -18761,6 +18835,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2484988113689790186}
   - {fileID: 2342789998720497020}
   - {fileID: 7875321332777152881}
   - {fileID: 4746420958352929407}
@@ -19286,6 +19361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img_avatar: {fileID: 7653188237917971702}
+  s_id: 
   s_name: Cristiano Ronaldo
   block_shoot_arow: []
   ball_force: 8
@@ -19553,6 +19629,81 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &6243176796858482192
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6143506810893662174}
+  - component: {fileID: 7282576020320079746}
+  - component: {fileID: 109287948972322726}
+  m_Layer: 5
+  m_Name: btn_icon_info
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6143506810893662174
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6243176796858482192}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3295770382704223081}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -15, y: -15}
+  m_SizeDelta: {x: 20, y: 20}
+  m_Pivot: {x: 1, y: 1}
+--- !u!222 &7282576020320079746
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6243176796858482192}
+  m_CullTransparentMesh: 1
+--- !u!114 &109287948972322726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6243176796858482192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 99da3a4d2d2948544a1d55af85b60f3d, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -20510,6 +20661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img_avatar: {fileID: 5052857149261687574}
+  s_id: 
   s_name: Marquinhos
   block_shoot_arow: []
   ball_force: 3
@@ -22215,6 +22367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img_avatar: {fileID: 249654392627931766}
+  s_id: 
   s_name: Ronaldo
   block_shoot_arow:
   - {fileID: 1265563586359876680}
@@ -23304,6 +23457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img_avatar: {fileID: 3977547373552623298}
+  s_id: 
   s_name: "Luis Su\xE1rez"
   block_shoot_arow: []
   ball_force: 4
@@ -25932,6 +26086,81 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &8453658636744754011
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2484988113689790186}
+  - component: {fileID: 418518809137259546}
+  - component: {fileID: 8634395588503353868}
+  m_Layer: 5
+  m_Name: btn_icon_change
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2484988113689790186
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8453658636744754011}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.99979067, y: 0.99979067, z: 0.99979067}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4052230003072828101}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -15, y: -15}
+  m_SizeDelta: {x: 20, y: 20}
+  m_Pivot: {x: 1, y: 1}
+--- !u!222 &418518809137259546
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8453658636744754011}
+  m_CullTransparentMesh: 1
+--- !u!114 &8634395588503353868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8453658636744754011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: b4e92c014b049034c867d4bccc3bea7b, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &8456483289637542475
 GameObject:
   m_ObjectHideFlags: 0
@@ -26800,6 +27029,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img_avatar: {fileID: 6411248804506961969}
+  s_id: 
   s_name: Thibaut Courtois
   block_shoot_arow:
   - {fileID: 8818744698371593282}
@@ -27382,6 +27612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img_avatar: {fileID: 6472508500000705012}
+  s_id: 
   s_name: Zlatan Ibrahimovic
   block_shoot_arow: []
   ball_force: 7

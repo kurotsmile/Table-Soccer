@@ -59,8 +59,8 @@ public class Data_Football_Player : MonoBehaviour
             if (!fc.is_null)
             {
                 IDictionary data_p = fc.fire_document[0].Get_IDictionary();
-                Debug.Log(datas);
                 Football_Player p = p_data_playerfootball.GetComponent<Football_Player>();
+                p.s_id = data_p["id"].ToString();
                 p.s_name = data_p["name"].ToString();
                 p.txt_name.text = data_p["name"].ToString();
                 p.ball_force = int.Parse(data_p["ball_force"].ToString());
@@ -109,13 +109,11 @@ public class Data_Football_Player : MonoBehaviour
             }
             else
             {
-                g.carrot.Show_msg(this.g.carrot.L("change_player", "Change football player"), g.carrot.L("no_player", "No player found"));
-                g.carrot.play_vibrate();
+                this.Msg_no_player();
             }
         }, (error) =>
         {
-            g.carrot.Show_msg(this.g.carrot.L("change_player", "Change football player"), g.carrot.L("no_player", "No player found"));
-            g.carrot.play_vibrate();
+            this.Msg_no_player();
         });
     }
 
@@ -175,5 +173,38 @@ public class Data_Football_Player : MonoBehaviour
             }
         }
         return list_p;
+    }
+
+    public void Get_info_by_id(string s_id)
+    {
+        g.carrot.show_loading();
+        StructuredQuery q = new("football");
+        q.Add_select("name");
+        q.Add_select("tip");
+        q.Set_where("id", Query_OP.EQUAL, s_id);
+        q.Set_limit(1);
+        g.carrot.server.Get_doc(q.ToJson(), (datas) =>
+        {
+            g.carrot.hide_loading();
+            Fire_Collection fc = new Fire_Collection(datas);
+            if (!fc.is_null)
+            {
+                IDictionary data_p = fc.fire_document[0].Get_IDictionary();
+                g.carrot.Show_msg(data_p["name"].ToString(), data_p["tip"].ToString(), Msg_Icon.Alert);
+            }
+            else
+            {
+                this.Msg_no_player();
+            }
+        }, (error) =>
+        {
+            this.Msg_no_player();
+        });
+    }
+
+    public void Msg_no_player()
+    {
+        g.carrot.Show_msg(this.g.carrot.L("change_player", "Change football player"), g.carrot.L("no_player", "No player found"));
+        g.carrot.play_vibrate();
     }
 }

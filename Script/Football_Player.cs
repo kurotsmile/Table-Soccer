@@ -5,6 +5,7 @@ public class Football_Player : MonoBehaviour
 {
     [Header("Obj Football")]
     public Image img_avatar;
+    public string s_id;
     public string s_name;
     public GameObject[] block_shoot_arow;
     public int ball_force;

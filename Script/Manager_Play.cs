@@ -381,6 +381,7 @@ public class Manager_Play : MonoBehaviour
                 GameObject Item_player = Instantiate(this.item_player_prefab);
                 Item_player.transform.SetParent(this.area_body_list_player);
                 Item_player.transform.localScale = new Vector3(1f, 1f, 1f);
+                Item_player.GetComponent<Football_Player>().s_id= data_player["id"].ToString();
                 Item_player.GetComponent<Football_Player>().txt_name.text = data_player["name"].ToString();
                 Item_player.GetComponent<Football_Player>().ball_force = int.Parse(data_player["ball_force"].ToString());
                 Item_player.GetComponent<Football_Player>().ball_control = int.Parse(data_player["ball_control"].ToString());
@@ -554,6 +555,14 @@ public class Manager_Play : MonoBehaviour
     public bool get_status_buy_all()
     {
         return this.is_unlock_all_player;
+    }
+
+    public void Btn_show_tip_player_in()
+    {
+        if (this.fplayer_in != null)
+            this.g.data_football_player.Get_info_by_id(this.fplayer_in.s_id);
+        else
+            this.g.data_football_player.Msg_no_player();
     }
 
 }
