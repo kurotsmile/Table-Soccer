@@ -14,9 +14,23 @@ public class Data_Football_Player : MonoBehaviour
     private Carrot_Box box;
     List<Football_Player> list_player = null;
 
-    public void add()
+    public void Change_player_by_id(string id_player)
     {
+        g.carrot.show_loading();
+        g.carrot.server.Get_doc_by_path("football", id_player, (datas) =>
+        {
+            g.carrot.hide_loading();
+            Debug.Log(datas);
+            this.Show_change_player_random();
+        });
+    }
 
+    public void Show_change_player_random()
+    {
+        g.carrot.ads.Destroy_Banner_Ad();
+        this.list_player = this.get_all_player(this.g.Get_team_select());
+        int index_random = Random.Range(0,this.list_player.Count);
+        this.g.manager_play.show_change_player(this.list_player[index_random]);
     }
 
     public void Select_player_main_change()
@@ -37,6 +51,7 @@ public class Data_Football_Player : MonoBehaviour
 
             Carrot_Box_Btn_Item btn_sel = item_p.create_item();
             btn_sel.set_icon(this.g.carrot.icon_carrot_add);
+            btn_sel.set_color(this.g.carrot.color_highlight);
             Destroy(btn_sel.GetComponent<Button>());
         }
     }

@@ -20,6 +20,7 @@ public class Game : MonoBehaviour
 
     [Header("Obj Game")]
     public Manager_Play manager_play;
+    public Data_Football_Player data_football_player;
     public GameObject Item_list_prefab;
 
     [Header("Asset icon")]
@@ -85,6 +86,7 @@ public class Game : MonoBehaviour
                 {
                     string id_project = this.link_deep_app.Replace("tablesoccer://show/", "");
                     Debug.Log("Get player football id:" + id_project);
+                    this.data_football_player.Change_player_by_id(id_project);
                     this.link_deep_app = "";
                 }
             }
@@ -247,10 +249,10 @@ public class Game : MonoBehaviour
 
             Carrot_Box_Btn_Item btn_buy = item_unlook_all_player.create_item();
             btn_buy.set_icon(this.carrot.icon_carrot_buy);
+            btn_buy.set_color(this.carrot.color_highlight);
             Destroy(btn_buy.GetComponent<Button>());
         }
     }
-
 
     public void game_del_all_data()
     {
