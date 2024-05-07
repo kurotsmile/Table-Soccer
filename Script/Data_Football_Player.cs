@@ -15,6 +15,36 @@ public class Data_Football_Player : MonoBehaviour
 
     private Carrot_Box box;
     List<Football_Player> list_player = null;
+    private string[] s_data_player_cache = new string[4];
+
+    public void Onload()
+    {
+        if (g.carrot.is_offline())
+        {
+            for (int i = 0; i < s_data_player_cache.Length; i++)
+            {
+                this.s_data_player_cache[i] = PlayerPrefs.GetString("data_p_" + i,"");
+            }
+        }
+        else
+        {
+            for(int i=0;i<s_data_player_cache.Length;i++)
+            {
+                this.s_data_player_cache[i] = "";
+            }
+        }
+    }
+
+    public string Get_data_cache(int index_player_position)
+    {
+        return this.s_data_player_cache[index_player_position];
+    }
+
+    public void Save_data_cache(string s_data,int index_player_position)
+    {
+        PlayerPrefs.SetString("data_p_" + index_player_position, s_data);
+        this.s_data_player_cache[index_player_position] = s_data;
+    }
 
     public void Change_player_by_id(string id_player)
     {
@@ -79,11 +109,13 @@ public class Data_Football_Player : MonoBehaviour
             }
             else
             {
-                g.carrot.Show_msg("No player");
+                g.carrot.Show_msg(this.g.carrot.L("change_player", "Change football player"), g.carrot.L("no_player", "No player found"));
+                g.carrot.play_vibrate();
             }
         }, (error) =>
         {
-            g.carrot.Show_msg("No player");
+            g.carrot.Show_msg(this.g.carrot.L("change_player", "Change football player"), g.carrot.L("no_player", "No player found"));
+            g.carrot.play_vibrate();
         });
     }
 
@@ -91,7 +123,7 @@ public class Data_Football_Player : MonoBehaviour
     {
         g.carrot.ads.Destroy_Banner_Ad();
         this.list_player = this.get_all_player(this.g.Get_team_select());
-        int index_random = Random.Range(0,this.list_player.Count);
+        int index_random = UnityEngine.Random.Range(0,this.list_player.Count);
         this.g.manager_play.show_change_player(this.list_player[index_random]);
     }
 
@@ -122,6 +154,7 @@ public class Data_Football_Player : MonoBehaviour
     {
         if (box != null) box.close();
         this.g.manager_play.Load_change_player_info(this.list_player[index_p]);
+        this.g.manager_play.get_list_player();
     }
 
     private List<Football_Player> get_all_player(int index_team)

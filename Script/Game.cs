@@ -46,6 +46,7 @@ public class Game : MonoBehaviour
         this.panel_play.SetActive(false);
         this.load_total_goals("");
         this.manager_play.on_start();
+        this.data_football_player.Onload();
 
         this.player_sel_team = PlayerPrefs.GetInt("player_sel_team");
         this.check_team_select();

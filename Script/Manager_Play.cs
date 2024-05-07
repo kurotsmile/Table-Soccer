@@ -1,5 +1,6 @@
 using Carrot;
 using System.Collections;
+using System.Xml.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -335,20 +336,36 @@ public class Manager_Play : MonoBehaviour
         this.g.carrot.game.update_scores_player(this.scores_total);
     }
 
-    private void get_list_player()
+    public void get_list_player()
     {
         this.panel_player_loading.SetActive(true);
         this.g.carrot.clear_contain(this.area_body_list_player);
-        StructuredQuery q = new("football");
-        q.Add_select("name");
-        q.Add_select("buy");
-        q.Add_select("icon");
-        q.Add_select("ball_control");
-        q.Add_select("ball_cutting");
-        q.Add_select("ball_force");
-        q.Add_select("playing_position");
-        q.Add_where("playing_position", Query_OP.EQUAL, this.fplayer_out.playing_position.ToString());
-        this.g.carrot.server.Get_doc(q.ToJson(), this.Act_get_list_player);
+
+        string s_data_p = g.data_football_player.Get_data_cache(this.fplayer_out.playing_position);
+        if (s_data_p == "")
+        {
+            StructuredQuery q = new("football");
+            q.Add_select("name");
+            q.Add_select("buy");
+            q.Add_select("icon");
+            q.Add_select("ball_control");
+            q.Add_select("ball_cutting");
+            q.Add_select("ball_force");
+            q.Add_select("playing_position");
+            q.Add_where("playing_position", Query_OP.EQUAL, this.fplayer_out.playing_position.ToString());
+            this.g.carrot.server.Get_doc(q.ToJson(), this.Act_get_list_player_Done);
+        }
+        else
+        {
+            this.Act_get_list_player(s_data_p);
+        }
+
+    }
+
+    private void Act_get_list_player_Done(string s_data)
+    {
+        this.g.data_football_player.Save_data_cache(s_data, this.fplayer_out.playing_position);
+        this.Act_get_list_player(s_data);
     }
 
     private void Act_get_list_player(string s_data)

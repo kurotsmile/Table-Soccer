@@ -228,7 +228,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Name Player
+  m_Text: Alisson Becker
 --- !u!1 &756223053792654463
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,11 +324,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img_avatar: {fileID: 756223052285554523}
-  s_name: 
+  s_name: Alisson Becker
   block_shoot_arow: []
-  ball_force: 0
-  ball_control: 0
-  ball_cutting: 0
+  ball_force: 3
+  ball_control: 3
+  ball_cutting: 8
   playing_position: 0
   txt_name: {fileID: 756223053055445552}
   txt_tip: {fileID: 6875000792671135195}
@@ -407,7 +407,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8572467644576429572
 RectTransform:
   m_ObjectHideFlags: 0
