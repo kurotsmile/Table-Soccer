@@ -1,4 +1,5 @@
 using Carrot;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,6 +8,7 @@ public class Data_Football_Player : MonoBehaviour
 {
     [Header("Obj Main")]
     public Game g;
+    public GameObject p_data_playerfootball;
     
     [Header("Ui")]
     public Sprite icon_change_player;
@@ -17,11 +19,71 @@ public class Data_Football_Player : MonoBehaviour
     public void Change_player_by_id(string id_player)
     {
         g.carrot.show_loading();
-        g.carrot.server.Get_doc_by_path("football", id_player, (datas) =>
+        StructuredQuery q = new("football");
+        q.Set_where("id",Query_OP.EQUAL,id_player);
+        q.Set_limit(1);
+        g.carrot.server.Get_doc(q.ToJson(),(datas) =>
         {
             g.carrot.hide_loading();
-            Debug.Log(datas);
-            this.Show_change_player_random();
+            Fire_Collection fc = new Fire_Collection(datas);
+            if (!fc.is_null)
+            {
+                IDictionary data_p = fc.fire_document[0].Get_IDictionary();
+                Debug.Log(datas);
+                Football_Player p = p_data_playerfootball.GetComponent<Football_Player>();
+                p.s_name = data_p["name"].ToString();
+                p.txt_name.text = data_p["name"].ToString();
+                p.ball_force = int.Parse(data_p["ball_force"].ToString());
+                p.ball_control = int.Parse(data_p["ball_control"].ToString());
+                p.ball_cutting = int.Parse(data_p["ball_cutting"].ToString());
+                if (g.manager_play.get_status_buy_all())
+                {
+                    p.is_free = true;
+                    p.button_buy.SetActive(false);
+                }
+                else
+                {
+                    if (data_p["buy"] != null)
+                    {
+                        if (data_p["buy"].ToString() == "0")
+                        {
+                            p.is_free = true;
+                            p.button_buy.SetActive(false);
+                        }
+                        else
+                        {
+                            p.is_free = false;
+                            p.button_buy.SetActive(true);
+                        }
+                    }
+                    else
+                    {
+                        p.is_free = false;
+                        p.button_buy.SetActive(true);
+                    }
+                }
+
+                this.Show_change_player_random();
+                g.manager_play.show_change_player_in(p);
+
+                string id_icon_p = "icon_p_" + data_p["id"].ToString();
+                Sprite icon_player = this.g.carrot.get_tool().get_sprite_to_playerPrefs(id_icon_p);
+                if (icon_player != null)
+                {
+                    g.manager_play.info_change_avatar_draft.sprite= icon_player;
+                }
+                else
+                {
+                    this.g.carrot.get_img_and_save_playerPrefs(data_p["icon"].ToString(), g.manager_play.info_change_avatar_draft, id_icon_p);
+                }
+            }
+            else
+            {
+                g.carrot.Show_msg("No player");
+            }
+        }, (error) =>
+        {
+            g.carrot.Show_msg("No player");
         });
     }
 

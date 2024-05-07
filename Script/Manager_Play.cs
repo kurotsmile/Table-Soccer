@@ -534,4 +534,9 @@ public class Manager_Play : MonoBehaviour
         this.button_change_done.SetActive(true);
     }
 
+    public bool get_status_buy_all()
+    {
+        return this.is_unlock_all_player;
+    }
+
 }
