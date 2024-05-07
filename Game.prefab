@@ -18608,6 +18608,7 @@ GameObject:
   - component: {fileID: 4052230003072828101}
   - component: {fileID: 865931859471418141}
   - component: {fileID: 7518307764540474097}
+  - component: {fileID: 261857483105621404}
   m_Layer: 5
   m_Name: change_player_out
   m_TagString: Untagged
@@ -18678,6 +18679,62 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &261857483105621404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6120461067805785488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 0
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 7518307764540474097}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3998596137763623256}
+        m_TargetAssemblyTypeName: Data_Football_Player, Assembly-CSharp
+        m_MethodName: Select_player_main_change
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6149421978538775584
 GameObject:
   m_ObjectHideFlags: 0
@@ -27269,6 +27326,7 @@ GameObject:
   - component: {fileID: 2507453247805985090}
   - component: {fileID: 4453255804850527126}
   - component: {fileID: 2781196991771452541}
+  - component: {fileID: 3998596137763623256}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -27310,7 +27368,6 @@ MonoBehaviour:
   carrot: {fileID: 0}
   panel_menu: {fileID: 5255118568269421816}
   panel_play: {fileID: 4433597661991665125}
-  icon_rank: {fileID: 21300000, guid: 39f54442bd758d64c80edb11592bd2b9, type: 3}
   icon_team_sel:
   - {fileID: 8852797563311604980, guid: 46653bd35c2f1b34a93275a6c0497aff, type: 3}
   - {fileID: -7420991742971661633, guid: 46653bd35c2f1b34a93275a6c0497aff, type: 3}
@@ -27380,6 +27437,21 @@ MonoBehaviour:
   - {fileID: 9083718639403902507}
   List_img_change_icon_lang:
   - {fileID: 436863752247162416}
+--- !u!114 &3998596137763623256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8974513700007541073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2af2b123a2e29e4fab0c85cbd3a13cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  g: {fileID: 4453255804850527126}
+  box: {fileID: 0}
+  icon_change_player: {fileID: 21300000, guid: 02f1abe1c31ab934089742e4a18ff44a, type: 3}
 --- !u!1 &9004802819719905637
 GameObject:
   m_ObjectHideFlags: 0

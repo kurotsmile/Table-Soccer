@@ -244,6 +244,10 @@ public class Game : MonoBehaviour
             item_unlook_all_player.set_type(Box_Item_Type.box_nomal);
             item_unlook_all_player.check_type();
             item_unlook_all_player.set_act(() => this.buy_product(2));
+
+            Carrot_Box_Btn_Item btn_buy = item_unlook_all_player.create_item();
+            btn_buy.set_icon(this.carrot.icon_carrot_buy);
+            Destroy(btn_buy.GetComponent<Button>());
         }
     }
 
@@ -257,6 +261,11 @@ public class Game : MonoBehaviour
     public void check_and_show_ads()
     {
         carrot.ads.show_ads_Interstitial();
+    }
+
+    public int Get_team_select()
+    {
+        return this.player_sel_team;
     }
 
 }

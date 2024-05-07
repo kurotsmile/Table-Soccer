@@ -340,6 +340,13 @@ public class Manager_Play : MonoBehaviour
         this.panel_player_loading.SetActive(true);
         this.g.carrot.clear_contain(this.area_body_list_player);
         StructuredQuery q = new("football");
+        q.Add_select("name");
+        q.Add_select("buy");
+        q.Add_select("icon");
+        q.Add_select("ball_control");
+        q.Add_select("ball_cutting");
+        q.Add_select("ball_force");
+        q.Add_select("playing_position");
         q.Add_where("playing_position", Query_OP.EQUAL, this.fplayer_out.playing_position.ToString());
         this.g.carrot.server.Get_doc(q.ToJson(), this.Act_get_list_player);
     }
@@ -441,18 +448,23 @@ public class Manager_Play : MonoBehaviour
 
     public void show_change_player(Football_Player fp)
     {
-        this.fplayer_out = fp;
         this.panel_info_player.SetActive(false);
         this.panel_player_none.SetActive(true);
         this.panel_player_in.SetActive(false);
+        this.Panel_change_player.SetActive(true);
+        this.Load_change_player_info(fp);
+        this.get_list_player();
+    }
+
+    public void Load_change_player_info(Football_Player fp)
+    {
+        this.fplayer_out = fp;
         this.info_change_avatar.sprite = fp.img_avatar.sprite;
         this.info_change_name.text = fp.s_name;
         this.slider_ball_control_out.value = fp.ball_control;
         this.slider_ball_cutting_out.value = fp.ball_cutting;
         this.slider_ball_force_out.value = fp.ball_force;
-        this.g.play_sound(1);
-        this.Panel_change_player.SetActive(true);
-        this.get_list_player();
+        this.g.carrot.play_sound_click();
     }
 
     public void show_change_player_in(Football_Player fp)
@@ -505,6 +517,13 @@ public class Manager_Play : MonoBehaviour
         this.panel_player_loading.SetActive(true);
         this.g.carrot.clear_contain(this.area_body_list_player);
         StructuredQuery q = new("football");
+        q.Add_select("name");
+        q.Add_select("buy");
+        q.Add_select("icon");
+        q.Add_select("ball_control");
+        q.Add_select("ball_cutting");
+        q.Add_select("ball_force");
+        q.Add_select("playing_position");
         q.Add_where("name", Query_OP.EQUAL, s_val);
         this.g.carrot.server.Get_doc(q.ToJson(), this.Act_get_list_player);
     }
