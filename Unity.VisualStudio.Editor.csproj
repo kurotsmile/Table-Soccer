@@ -86,8 +86,8 @@
     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio\Editor\Discovery.cs" />
     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio\Editor\Messaging\MessageType.cs" />
     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio\Editor\VisualStudioIntegration.cs" />
-    <Compile Include="Library\PackageCache\com.unity.ide.visualstudio\Editor\Testing\TestAdaptor.cs" />
     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio\Editor\ProjectGeneration\ProjectProperties.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ide.visualstudio\Editor\Testing\TestAdaptor.cs" />
     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio\Editor\Cli.cs" />
     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio\Editor\Image.cs" />
     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio\Editor\Messaging\Deserializer.cs" />

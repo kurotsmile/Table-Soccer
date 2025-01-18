@@ -120,9 +120,9 @@
     <Compile Include="Library\PackageCache\com.unity.purchasing\Editor\ServiceProjectSettings\SimpleStateMachine.cs" />
     <Compile Include="Library\PackageCache\com.unity.purchasing\Editor\BuildTargetGroupExtensions.cs" />
     <Compile Include="Library\PackageCache\com.unity.purchasing\Editor\ServiceProjectSettings\PurchasingGameService.cs" />
+    <Compile Include="Library\PackageCache\com.unity.purchasing\Editor\ServiceProjectSettings\PurchasingSettingsProvider.cs" />
     <Compile Include="Library\PackageCache\com.unity.purchasing\Editor\ServiceProjectSettings\Service\GoogleConfigService.cs" />
     <Compile Include="Library\PackageCache\com.unity.purchasing\Editor\Analytics\Helpers\GenericEditorButtonClickEventSenderHelpers.cs" />
-    <Compile Include="Library\PackageCache\com.unity.purchasing\Editor\ServiceProjectSettings\PurchasingSettingsProvider.cs" />
     <Compile Include="Library\PackageCache\com.unity.purchasing\Editor\UnityPurchasingEditor.cs" />
     <Compile Include="Library\PackageCache\com.unity.purchasing\Editor\ServiceProjectSettings\UI\Views\AppleConfigurationSettingsBlock.cs" />
     <Compile Include="Library\PackageCache\com.unity.purchasing\Editor\UdpSynchronizationApi.cs" />
