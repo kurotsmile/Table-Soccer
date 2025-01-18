@@ -119,7 +119,7 @@ public class Data_Football_Player : MonoBehaviour
 
     public void Show_change_player_random()
     {
-        g.carrot.ads.Destroy_Banner_Ad();
+        g.ads.HideBannerAd();
         this.list_player = this.get_all_player(this.g.Get_team_select());
         int index_random = UnityEngine.Random.Range(0,this.list_player.Count);
         this.g.manager_play.show_change_player(this.list_player[index_random]);

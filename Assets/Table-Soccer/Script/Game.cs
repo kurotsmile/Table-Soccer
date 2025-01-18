@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Game : MonoBehaviour
 {
     public Carrot.Carrot carrot;
+    public IronSourceAds ads;
 
     [Header("Panel Game")]
     public GameObject panel_menu;
@@ -36,9 +37,11 @@ public class Game : MonoBehaviour
         Application.deepLinkActivated += onDeepLinkActivated;
 
         this.carrot.Load_Carrot(this.check_exit_app);
+        this.ads.On_Load();
+
         this.carrot.shop.onCarrotPaySuccess += this.on_success_carrot_pay;
         this.carrot.shop.onCarrotRestoreSuccess += this.on_success_carrot_restore;
-
+        
         this.carrot.game.load_bk_music(this.sound[5]);
         this.carrot.change_sound_click(this.sound[1].clip);
 
@@ -108,20 +111,20 @@ public class Game : MonoBehaviour
 
     public void back_home()
     {
-        carrot.ads.create_banner_ads();
+        this.ads.ShowBannerAd();
         this.panel_menu.SetActive(true);
         this.carrot.play_sound_click();
     }
 
     public void game_play()
     {
-        carrot.ads.Destroy_Banner_Ad();
+        this.ads.HideBannerAd();
         this.manager_play.game_one_player(this.player_sel_team);
     }
 
     public void game_two_play()
     {
-        carrot.ads.Destroy_Banner_Ad();
+        this.ads.HideBannerAd();
         this.manager_play.game_two_player();
     }
 
@@ -263,7 +266,7 @@ public class Game : MonoBehaviour
 
     public void check_and_show_ads()
     {
-        carrot.ads.show_ads_Interstitial();
+        this.ads.show_ads_Interstitial();
     }
 
     public int Get_team_select()
