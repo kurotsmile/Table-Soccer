@@ -260,6 +260,10 @@ public class Game : MonoBehaviour
             btn_buy.set_color(this.carrot.color_highlight);
             Destroy(btn_buy.GetComponent<Button>());
         }
+
+        box.set_act_before_closing(()=>{
+            load_total_goals("");
+        });
     }
 
     public void game_del_all_data()
