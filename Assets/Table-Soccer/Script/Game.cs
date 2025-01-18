@@ -45,6 +45,10 @@ public class Game : MonoBehaviour
         this.carrot.game.load_bk_music(this.sound[5]);
         this.carrot.change_sound_click(this.sound[1].clip);
 
+        this.carrot.game.act_click_watch_ads_in_music_bk=this.ads.ShowRewardedVideo;
+        this.carrot.act_buy_ads_success=this.ads.RemoveAds;
+        this.ads.onRewardedSuccess=this.carrot.game.OnRewardedSuccess;
+
         this.panel_menu.SetActive(true);
         this.panel_play.SetActive(false);
         this.load_total_goals("");
